@@ -70,6 +70,6 @@ waitABit()
 
 //: And yes if you really want to, you can chain `toAsync` and `toSync` to a certain extent (this has no use whatsoever)
 
-toSync(toAsync(toSync(toAsync(sayHi))))("Bob", false)
+toSync(toAsync(sayHi))("Bob", false)
 
 //: [Next](@next)
