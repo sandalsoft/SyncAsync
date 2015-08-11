@@ -28,38 +28,50 @@ A much more detailed tutorial including throwing functions, error handlers and m
 
 We have got ourselves an asynchronous function
 
-    func doItLater(n: Int, completionHandler: String -> Void) {
-      dispatch_async(dispatch_queue_create("", DISPATCH_QUEUE_SERIAL)) {
-        let string = "\n".join(Repeat(count: n, repeatedValue: "JUST DO IT!"))
-        completionHandler(string)
-      }
-    }
+```swift
+func doItLater(n: Int, completionHandler: String -> Void) {
+  dispatch_async(dispatch_queue_create("", DISPATCH_QUEUE_SERIAL)) {
+    let string = "\n".join(Repeat(count: n, repeatedValue: "JUST DO IT!"))
+    completionHandler(string)
+  }
+}
+```
 
 but we don't want to procrastinate, so we make it synchronous
 
-    let doItNow = toSync(doItLater)   // type signature: Int -> String
+```swift
+let doItNow = toSync(doItLater)   // type signature: Int -> String
+```
 
 and call it
 
-    doItNow(100)    // "JUST DO IT!\nJUST DO IT!\nJUST DO IT!..."
+```swift
+doItNow(100)    // "JUST DO IT!\nJUST DO IT!\nJUST DO IT!..."
+```
 
 ###toAsync
 
 Suppose we have a synchronous function
 
-    func multiply(a: Int, b: Int) -> Int {
-      return a * b
-    }
+```swift
+func multiply(a: Int, b: Int) -> Int {
+  return a * b
+}
+```
 
 We can convert it to an asynchronous one like this
 
-    let asyncMultiply = toAsync(multiply)   // type signature: (Int, Int, completionHandler: Int -> ()) -> ()
+```swift
+let asyncMultiply = toAsync(multiply)   // type signature: (Int, Int, completionHandler: Int -> ()) -> ()
+```
 
 and call it
 
-    asyncAdd(6, 9) {
-      print($0)
-    }
+```swift
+asyncAdd(6, 9) {
+  print($0)
+}
+```
 
 Which will obviously print "42" when done, using our provided completion handler
 
