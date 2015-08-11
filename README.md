@@ -69,7 +69,7 @@ All you need to do to be able to use this is:
 - Download the Playground for a full tutorial (or you can download the important stuff only [here](https://github.com/Kametrixom/SyncAsync/blob/master/SyncAsync.playground/Sources/SyncAsync.swift))
 - Copy the SyncAsync.swift into your project
 
-##Bla
+##Notes
 
 I hope this small library helps you, it was really fun to write it anyways. The source file was partly generated automatically, errors are unlikely, also due to the very strict function signatures, however if you happen to find one, please let me know (@Kametrixom on Twitter, Reddit, StackOverflow, Github, ...) and I'll see what I can do. Suggestions and critique are very welcome as well. If you don't like that the functions are so minimized, I'm sorry, but otherwise it would get very big. Also sorry for any typos, english isn't my native language. If you're able to use my library for anything useful, I wouldn't mind a mention on Twitter ;)
 
