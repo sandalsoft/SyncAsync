@@ -3,22 +3,7 @@ import XCPlayground
 
 XCPSetExecutionShouldContinueIndefinitely()
 
-func average(a: Double, b: Double, c: Double) -> Double {
-	return (a + b + c) / 3
-}
-
-func product(from: Int, to: Int, completionHandler: Int -> ()) {
-	completionHandler((from...to).reduce(1, combine: *))
-}
-
-let prodSync = toSync(product)
-print(prodSync(1, 7))
-print("After sync call")
-
-
-let avgAsync = toAsync(average)
-avgAsync(1, 2, 4, completionHandler: print)
-print("After async call")
+// This test set isn't complete in that it doesn't test every function, however most functions in SyncAsync.swift were generated automatically, a typo isn't likely
 
 enum E : ErrorType {
 	case E
@@ -50,13 +35,11 @@ toAsync(st22)(1, 1, completionHandler: { print("st22: \($0)") }, errorHandler: {
 toAsync(st22)(0, 1, completionHandler: { print("st22: \($0)") }, errorHandler: { print("st22 error: \($0)") })
 
 
-NSThread.sleepForTimeInterval(0.1)
+NSThread.sleepForTimeInterval(1)
 print()
 
 struct S<I, O> {
-	let i: I
-	let c: I -> O
-	let h: O -> ()
+	let i: I, c: I -> O, h: O -> ()
 	func exec() { h(c(i)) }
 }
 
@@ -69,6 +52,8 @@ func asn11(a: Int, h: Int -> ()) -> S<Int, Int> { return S(i: a, c: {$0}, h: h) 
 func asn21(a: Int, b: Int, h: Int -> ()) -> S<(Int, Int), Int> { return S(i: (a, b), c: {$0.0 + $0.1}, h: h) }
 func asn12(a: Int, h: (Int, Int) -> ()) -> S<Int, (Int, Int)> { return S(i: a, c: {($0, $0 + 1)}, h: h) }
 func asn22(a: Int, b: Int, h: (Int, Int) -> ()) -> S<(Int, Int), (Int, Int)> { return S(i: (a, b), c: {($0.0 + $0.1, $0.0 - $0.1)}, h: h) }
+
+
 
 print("ann11 \(toSync(ann11)(1))")
 print("ann21 \(toSync(ann21)(1, 1))")
