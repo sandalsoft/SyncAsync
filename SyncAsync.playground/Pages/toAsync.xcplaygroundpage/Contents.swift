@@ -62,7 +62,7 @@ waitABit()
 toSync(toAsync(sayHi))("Bob", false)
 
 /*:
-I hope this small library helps you, it was really fun to write it anyways. The source file was mostly generated automatically, errors are unlikely, also due to the very static function signatures, however if you happen to find an error, please let me know (@Kametrixom on Twitter, Reddit, StackOverflow, Github, ...) and I'll see what I can do. Suggestions and critique are very welcome as well. If you don't like that the functions are so minimized, I'm sorry, but otherwise it would get very big. Also sorry for any typos, english isn't my native language. If you were able to use my library for anything useful, I wouldn't mind a mention on Twitter ;)
+I hope this small library helps you, it was really fun to write it anyways. The source file was partly generated automatically, errors are unlikely, also due to the very strict function signatures, however if you happen to find an error, please let me know (@Kametrixom on Twitter, Reddit, StackOverflow, Github, ...) and I'll see what I can do. Suggestions and critique are very welcome as well. If you don't like that the functions are so minimized, I'm sorry, but otherwise it would get very big. Also sorry for any typos, english isn't my native language. If you're able to use my library for anything useful, I wouldn't mind a mention on Twitter ;)
 
 Inspiration came from StackOverflow where people often want to make asynchronous tasks synchronous (usually that's a bad thing). They get replies such as "These functions are asynchronous for a reason, don't fight it", etc. but sometimes it's actually pretty useful to have them synchronous, as I mentioned in the beginning.
 
